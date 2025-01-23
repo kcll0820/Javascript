@@ -117,33 +117,34 @@
 
 const calculator = {
   result: 0,
-  showHistorys: [],
+  history: [],
   add: function (x) {
     this.result = this.result + x;
-    this.showHistory();
+    this.history.push(this.result);
   },
   minus: function (x) {
     this.result = this.result - x;
-    this.showHistory();
+    this.history.push(this.result);
   },
   multiply: function (x) {
     this.result = this.result * x;
-    this.showHistory();
+    this.history.push(this.result);
   },
   divibe: function (x) {
-    this.result = this.result / x;
-    this.showHistory();
+    if (x == 0) console.log("에러");
+    else this.result = this.result / x;
+    this.history.push(this.result);
   },
-  square: function () {
-    this.result = this.result * this.result;
-    this.showHistory();
+  square: function (x) {
+    this.result = this.result ** x;
+    this.history.push(this.result);
   },
   clear: function () {
     this.result = 0;
-    this.showHistory();
+    this.history.push(this.result);
   },
   showHistory: function () {
-    this.showHistorys.push(this.result);
+    console.log(this.history);
   },
 };
 
